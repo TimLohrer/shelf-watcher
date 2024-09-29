@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: MONGO_DB_ADMIN_PASSWORD
+    ports:
+      - "27027:27017"
+    volumes:
+      - shelf_watcher_db:/data/db:rw
+      - shelf_watcher_db:/data/configdb:rw
+    restart: unless-stopped
+
+  
+
+volumes:
+  shelf_watcher_db:
